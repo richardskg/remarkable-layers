@@ -24,7 +24,7 @@ class Stroke(ByteableList):
         super().__init__()
 
     def __str__(self):
-        return f"Stroke: pen={self.pen.name}, colour={self.colour.name}, "
+        return f"Stroke: pen={self.pen.name}, colour={self.colour.name}, width={self.width.name}, nobjs={len(self.objects)} "
         f"width={self.width.name}, nobjs={len(self.objects)}"
 
     def to_bytes(self, buffer):
