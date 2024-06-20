@@ -1,7 +1,7 @@
 Forked from https://github.com/bsdz/remarkable-layers because of:
 Note: I am no longer using this project and I have archived it. Feel free to fork.
 
-# remarkable-layers
+# remarkable-layers - original README
 
 Python module for reading and writing Remarkable Lines files (*.rm).
 

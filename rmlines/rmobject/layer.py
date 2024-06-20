@@ -1,5 +1,8 @@
 from .base import ByteableList
 from .stroke import Stroke
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Layer(ByteableList):
@@ -15,3 +18,9 @@ class Layer(ByteableList):
 
     def __str__(self):
         return f"Layer: nobjs={len(self.objects)}"
+
+    def myscriptJSON(self, jsonObject):
+        # logger.debug('in Layer')
+        for obj in self.objects:
+            obj.myscriptJSON(jsonObject)
+            

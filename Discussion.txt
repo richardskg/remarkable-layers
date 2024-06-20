@@ -1,0 +1,25 @@
+run example.py to create the json to send to myscript and also to create an svg so you can see what it being converted.
+Change the file for rm0 for different remarkable files
+
+Layer ->
+    Stroke ->
+        Segment
+            contains the x,y points
+
+It appears that the sampling happens at constant time intervals of 1 (units?). 
+Looking at rm0.out, the stroke had a speed of 1.22 and moved a distance of 1.22, etc..
+
+See https://developer.myscript.com/docs/interactive-ink/1.4/web/rest/architecture/
+A segment will correspond with myscript stroke and a Stroke will correspond to an element in StrokeGoups.
+
+
+The pen is actually stored with every stroke. The penStyle that I was looking at is for display, which we don't use.
+// OLD ---
+Currently we create a new strokegroup entry for every stroke. We could be smarter and append the strokes to the current one if the pen
+hasn't changed, but that is not trivial since the decision would need to be made before we get into Stroke.py where we
+have the pen info.
+Stroke.py could return a strokegroup entry and the caller could look at the pen to decide to appned the stroke or 
+create a new strokegroup entry.
+---- //
+
+
