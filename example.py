@@ -25,9 +25,15 @@ f = open('rmTempOut.svg', 'wb')
 f.write(sbuffer.getvalue().encode())
 f.close
 
-hmacString = hmac.new(jsonString.encode(), None, hashlib.sha512).hexdigest()
+# Calculate the hmac key, https://developer.myscript.com/support/account/registering-myscript-cloud/#computing-the-hmac-value
+auth = open('authorization.txt','r')
+appKey = auth.readline()[:-1] # remove the newline
+HMACkey = auth.readline()[:-1]
+userKey = appKey + HMACkey
+
+hmacString = hmac.new(userKey.encode(), jsonString.encode(), hashlib.sha512)
 fh = open('rmTempOut.hmac', 'w')
-fh.write(hmacString)
+fh.write(hmacString.hexdigest())
 fh.close
 
 debugBreak = 0

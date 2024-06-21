@@ -1,5 +1,9 @@
+This note is from Ken Richards. This repo is a fork of the original, which is no longer supported.
+It is useful for testing. There are C++ and Rust repos to look at for "supported" code. (None seem highly advanced.)
+
 run example.py to create the json to send to myscript and also to create an svg so you can see what it being converted.
 Change the file for rm0 for different remarkable files
+The output will be in rmTempOut.hmac, rmTempOut.json, rmTempOut.svg
 
 Layer ->
     Stroke ->
@@ -21,5 +25,7 @@ have the pen info.
 Stroke.py could return a strokegroup entry and the caller could look at the pen to decide to appned the stroke or 
 create a new strokegroup entry.
 ---- //
+
+https://developer.myscript.com/support/account/registering-myscript-cloud/#computing-the-hmac-value
 
 
